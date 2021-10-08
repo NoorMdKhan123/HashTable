@@ -17,7 +17,11 @@ namespace HashTableExample
             string hash5 = hash.Get("5");
 
 
-            Console.WriteLine("5th index value"+hash5);
+            Console.WriteLine("5th index value : " + hash5);
+
+            string hash2 = hash.Get("2");
+            Console.WriteLine("2nd index value : " + hash2);
+
         }
     }
 }

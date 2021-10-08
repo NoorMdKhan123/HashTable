@@ -5,6 +5,7 @@ using System.Text;
 namespace HashTableExample
 {
     public class MyMapNode<K, V>
+        //coz we've to take key value pair
     {
         private int size;
         private LinkedList<KeyValue<K, V>>[] items;
@@ -55,8 +56,23 @@ namespace HashTableExample
         public void Remove(K key)
         {
             int position = GetArrayPosition(key);
-            LinkedList<KeyValue<K, V>> linkedlist = GetLinkedList(position);
-            bool  
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            bool itemFound = false;
+            KeyValue<K, V> foundItem = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> item in linkedList)
+
+            {
+                if(item.Key.Equals(key))
+                {
+                    itemFound = true;
+                    foundItem = item;
+                }
+            }
+
+            if (itemFound)
+            {
+                linkedList.Remove(foundItem);
+            }
         }
 
     }
