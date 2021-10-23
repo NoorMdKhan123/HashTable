@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace HashTableExample
 {
-    public class MyMapNode<K, V>
-        //coz we've to take key value pair
+    public class MyMapNode<K, V> : IEnumerable
+    //coz we've to take key value pair
     {
-        private int size;
-        private LinkedList<KeyValue<K, V>>[] items;
+        public int size;
+        public LinkedList<KeyValue<K, V>>[] items;
 
         public MyMapNode(int size)
         {
@@ -75,6 +76,10 @@ namespace HashTableExample
             }
         }
 
+        public IEnumerator GetEnumerator()
+        {
+            return items.GetEnumerator();
+        }
     }
         public struct KeyValue<k, v>
            {
